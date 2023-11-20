@@ -1,0 +1,12 @@
+package rules;
+import com.zta.zta.models.UserResponse;
+
+
+rule "Es un usuario valido"
+
+when
+$user : UserResponse(givenName != null, email != null);
+then
+$user.setIsValid(true);
+end;
+
